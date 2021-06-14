@@ -1,4 +1,6 @@
 import os
+import sys
+
 import numpy as np
 
 
@@ -25,12 +27,10 @@ def iou_oa(y_true, y_pred, n_class):
 
 if __name__ == "__main__":
 
-    with open('y_true', 'r') as f:
+    with open(sys.args[1], 'r') as f:
         y_true = f.read()
     # assume result file
-    with open('y_pred', 'r') as f:
+    with open(sys.args[2], 'r') as f:
         y_pred = f.read()
 
     iou, oa = iou_oa(y_true, y_pred, 4)
-
-    
