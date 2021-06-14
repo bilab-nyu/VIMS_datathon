@@ -1,6 +1,7 @@
 import os
 import sys
 
+import pandas as pd
 import numpy as np
 
 
@@ -34,3 +35,4 @@ if __name__ == "__main__":
         y_pred = f.read()
 
     iou, oa = iou_oa(y_true, y_pred, 4)
+    pd.DataFrame([iou,oa],columns=['iou','oa']).to_csv('metrics.csv', index=False)
